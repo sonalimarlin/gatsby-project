@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: 'Wonderful Blog',
-        author: 'Aggie Agatha'
+        title: 'The Wonderful Blog',
+        author: 'Agatha Agnes Amelia'
     },
     plugins: [
         'gatsby-plugin-sass',
@@ -12,6 +12,21 @@ module.exports = {
                 path: `${__dirname}/src/`
             }
         },
-        'gatsby-transformer-remark'
+        'gatsby-plugin-sharp',
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    'gatsby-remark-relative-images',
+                    {
+                        resolve: 'gatsby-remark-images',
+                        options: {
+                            maxWidth: 750,
+                            linkImagesToOriginal: false
+                        }
+                    }
+                ]
+            }
+        }
     ]
 }
